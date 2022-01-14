@@ -1,0 +1,11 @@
+.pd-img-wrapp {
+  height: 415px;
+
+  img {
+    filter: brightness(0.9);
+    border-radius: 0.5rem;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+  }
+}
