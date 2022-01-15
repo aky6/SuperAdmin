@@ -28,7 +28,7 @@ export class CategoriesComponent implements OnInit {
   form: FormGroup;
   submitted: boolean;
   subCategories: any[];
-  categories: any;
+  categories: any[];
   imageUrl: any;
   isVendor: boolean;
   selectedFile: ImageSnippet;
@@ -115,7 +115,7 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.accountService.getcategory().subscribe(
       (data) => {
-        this.categories = data
+        this.catsucat = data
         console.log("catsucat", data)
       }
     )
