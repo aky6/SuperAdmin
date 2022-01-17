@@ -167,7 +167,7 @@
                     <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
                         <div class="">
                             <h4 class="mb-1">Top Selling Products</h4>
-                            <p class="font-14"> Top selling producst in Homemade
+                            <p class="font-14"> Top selling producst in HomeChef
                             </p>
                         </div>
 
@@ -190,10 +190,12 @@
                     <!-- Product List -->
                     <div class="product-list">
                         <!-- Product List Item -->
-                        <div class="product-list-item mb-20 d-flex justify-content-between align-items-center" *ngFor="let data of bestSellingData">
+                        <div class="product-list-item mb-20 d-flex justify-content-between align-items-center"
+                            *ngFor="let data of bestSellingData">
                             <div class="d-flex align-items-center">
                                 <div class="img mr-3">
-                                    <img [src]="data.imagePath ? data.imagePath : 'assets/images/product/product1.png'" alt="">
+                                    <img [src]="data.imagePath ? data.imagePath : 'assets/images/product/product1.png'"
+                                        alt="">
                                 </div>
                                 <div class="content">
                                     <p class="black mb-1">{{data.itemname}}</p>
@@ -266,7 +268,7 @@
                                 <td>{{order.created_at | date:'longDate'}}</td>
                                 <td>
                                     <div class="product-img">
-                                        <img  *ngFor="let item of order.itemList" [src]="item.ItemImage" alt="">
+                                        <img *ngFor="let item of order.itemList" [src]="item.ItemImage" alt="">
                                     </div>
                                 </td>
                                 <td>{{order.userUserId}}</td>
