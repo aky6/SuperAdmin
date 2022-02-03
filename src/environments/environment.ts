@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl: 'https://homefood-backend.herokuapp.com',
-  apiUrl: 'https://homeade.herokuapp.com',
+  apiUrl: 'https://homefood-backend.herokuapp.com',
   // 'https://homeade.herokuapp.com'
 };
 
