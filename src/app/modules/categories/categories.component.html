@@ -3,7 +3,7 @@
     <input type="text" [(ngModel)]="category">
     <br />
 
-    <label for="">subcategory :</label>
+    <label for="">Product :</label>
     <br />
     <!-- <input type="text"> -->
     <textarea name="subcategory" id="subcategory" cols="30" rows="10" [(ngModel)]="subcategory"></textarea>
@@ -12,6 +12,7 @@
     <div>
         <button type="submit" class="btn" (click)="submitForm(subcategory,category)">Save </button>
         <button type="button" class="btn" (click)="addmore()">Add More</button>
+
     </div>
 
     <table>
@@ -22,16 +23,33 @@
         </tr>
         <tr *ngFor="let cat of catsucat">
             <td>{{cat.categoryName}}</td>
-            <td>
-                <div>
-                    <p *ngFor="let subcat of cat.subcategories">
-                        {{subcat.subcategoryName}}
-                    </p>
+            <td style="display: flex; flex-direction: column; flex-wrap: wrap;" *ngIf="editFields == true">
 
+                <div style="display: flex; flex-direction: column; flex-wrap: wrap;"
+                    *ngFor="let subcato of cat.subcats ;let i index">
+                    <input name="product-{{subcato.subcategoryName}}" [(ngModel)]="subcato.subcategoryName">
+                    <button type="button" class="btn" (click)="update(subcato,i)">Update</button>
                 </div>
+
             </td>
+            <td *ngIf="editFields == false">
 
-        </tr>
+                <div>
+            <th *ngFor="let subcato of cat.subcats">
+                {{subcato.subcategoryName}}
 
-    </table>
+            </th>
+            <button type="button" class="btn" (click)="editchange(cat)">edit</button>
+</div>
+
+<div>
+
+</div>
+
+
+</td>
+
+</tr>
+
+</table>
 </div>

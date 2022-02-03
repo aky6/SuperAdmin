@@ -78,7 +78,18 @@ export class AccountService {
       catchError((err) => this.handleError(err))
     );
   }
+  updatesubcategory(subcatid, name) {
+    let cred = {
+      name: name,
+      subcatId: subcatid
+    }
+    return this.http.put<User>(`${environment.apiUrl}/updatesubcategoryname`, cred)
 
+      .pipe(
+
+        catchError((err) => this.handleError(err))
+      );
+  }
   logout() {
     // remove user from local storage and set current user to null
     this.currentUser = null;

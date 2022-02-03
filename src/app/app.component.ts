@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private router: Router,
     private vendorService: VendorService,
     private toasterService: ToastrService,
-    private adminService : AdminService
+    private adminService: AdminService
   ) {
     this.currentComponent = '';
     this.isVendor = false;
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       //console.log(this.user);
       this.isVendor = false;
       if (this.user) {
-        
+
         this.getVendorById(this.user.user.vendorId);
       }
     });
@@ -223,7 +223,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
       );
     }
-    else{
+    else {
       this.adminService.getAdminByID(uid).subscribe(
         (result: any) => {
           this.profile = result;

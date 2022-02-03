@@ -40,6 +40,8 @@ export class CategoriesComponent implements OnInit {
   category: any
   subcategory: string[];
   catsucat: any
+  editFields: Boolean
+  subcato: any
 
   constructor(
     private componentService: ComponentService,
@@ -113,6 +115,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.editFields = false
     this.accountService.getcategory().subscribe(
       (data) => {
         this.catsucat = data
@@ -121,17 +124,31 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
+  public editchange(subcato) {
+    console.log("🚀 ~ file: categories.component.ts ~ line 127 ~ CategoriesComponent ~ editchange ~ editchange", subcato)
+    this.editFields = true
+    let id = "rdctfvghbjknlm"
 
-
-
-
+  }
+  public update(subcato) {
+    console.log("🚀 ~ file: categories.component.ts ~ line 137 ~ CategoriesComponent ~ editchange ~ editchange", subcato)
+    this.editFields = false
+    let id = subcato.Id
+    let name = subcato.subcategoryName
+    this.accountService.updatesubcategory(id, name).subscribe((data) => {
+      console.log(data)
+    })
+  }
 
 
   // To create a new product
+
   submitForm(subcategory, category) {
     console.log("from cosole category", subcategory)
     this.subcategory = subcategory
     this.category = category
+    this.editFields = true
+
     console.log("from cosole subcategory", (subcategory.split(',')))
     console.log("from cosole subcategory", typeof (subcategory))
     console.log("from cosole category", category)
@@ -171,6 +188,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   addmore() {
+
     this.subcategory = []
     this.category = ""
     console.log("from cosole subcategory", this.subcategory)
